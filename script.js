@@ -44,7 +44,7 @@ window.myCPP = window.myCPP || {};
         contact.onEnded(clearContactAttribute);
     }
 
-    function subscribeToAgentEvents(){
+    function subscribeToAgentEvents(agent){
          console.log("Subscribing to agent events...");
          var name = agent.getName();
          console.log("Agent Name Is " + name);
@@ -67,8 +67,8 @@ window.myCPP = window.myCPP || {};
         }
 
     function updateUi(){
-       logInfoMsg("DODO-Agent has been connected");
-        logInfoMsg("LATEST attributes are " + JSON.stringify(contact.getAttributes()));
+        logInfoMsg("DODO-Agent has been connected");
+        logInfoMsg("LATEST attributes are " + JSON.stringify(window.myCPP.contact.getAttributes()));
         console.log('2DODO-Agent has been connected'); 
 
     }
