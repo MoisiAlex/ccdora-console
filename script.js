@@ -2,7 +2,7 @@
 window.myCPP = window.myCPP || {};
 
     //replace with the CCP URL for the current Amazon Connect instance
-    const ccpUrl = "https://kapschivrdemo.awsapps.com/connect/ccp#/";
+    const ccpUrl = "https://implementation.awsapps.com/connect/ccp#/";
 
     //add any contact attributes to be excluded
 
