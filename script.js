@@ -39,9 +39,8 @@ window.myCPP = window.myCPP || {};
 
          
         updateContactAttribute(contact.getAttributes());   
-        //contact.onConnected(call a function that updates the window and sends parameters somewhere-loggs them for now)
-        //contact.onAccepted(printLatestAttributes);
-        //contact.onConnected(updateUi);
+
+        contact.onConnected();
         contact.onEnded(clearContactAttribute);
     }
 
@@ -53,13 +52,6 @@ window.myCPP = window.myCPP || {};
          console.log("Agent configuration is " + agent.username + " " + agent.name);
     }
 
-    function printLatestAttributes(){
-        clearContactAttribute();
-        logInfoMsg("Clearing old attributes...");
-        updateContactAttribute(contact.getAttributes());
-        logInfoMsg("ON-CONNECTED-New Contact attributes are " + JSON.stringify(contact.getAttributes()));
-
-    }
 
     function updateContactAttribute(msg){
         const tableRef = document.getElementById('attributesTable').getElementsByTagName('tbody')[0];             
@@ -75,8 +67,7 @@ window.myCPP = window.myCPP || {};
         }
 
     function updateUi(){
-    var attr  = updateContactAttribute(contact.getAttributes());
-        console.log("Updating Attributes: " + attr);      
+        console.log('DODO-Agent has been connected'); 
     }
         
     function clearContactAttribute(){
