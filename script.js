@@ -41,9 +41,9 @@ window.myCPP = window.myCPP || {};
 
          
         updateContactAttribute(contact.getAttributes());   
-        contact.onConnected(printLatestAttributes);
         //contact.onConnected(call a function that updates the window and sends parameters somewhere-loggs them for now)
         contact.onAccepted(printLatestAttributes);
+        contact.onConnected(updateUi);
         logInfoMsg("ON-ACCEPTED-Contact attributes are " + JSON.stringify(contact.getAttributes()));
         contact.onEnded(clearContactAttribute);
     }
@@ -76,6 +76,16 @@ window.myCPP = window.myCPP || {};
                 }
             }
         }
+
+    function updateUi(){
+        var container = document.getElementById('attributesTable');
+         var content = container.innerHTML;
+        container.innerHTML= content; 
+    
+    console.log("Refreshed");           
+
+        gridDiv
+    }
         
     function clearContactAttribute(){
         let old_tbody= document.getElementById('attributesTable').getElementsByTagName('tbody')[0];
