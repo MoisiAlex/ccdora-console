@@ -25,9 +25,7 @@ window.myCPP = window.myCPP || {};
 
     function subscribeToContactEvents(contact) {
         window.myCPP.contact = contact;
-        //logInfoMsg("Current agent name is:" + agent.getName());
-        //logInfoMsg("Current agent configuration:");
-        //logInfoMsg(agent.getConfiguration());
+
         logInfoMsg("New contact offered. Subscribing to events for contact");
         if (contact.getActiveInitialConnection()
             && contact.getActiveInitialConnection().getEndpoint()) {
@@ -49,11 +47,11 @@ window.myCPP = window.myCPP || {};
     }
 
     function subscribeToAgentEvents(){
-         logInfoMsg("Subscribing to agent events...");
+         console.log("Subscribing to agent events...");
          var name = agent.getName();
-         logInfoMsg("Agent Name Is " + name);
+         console.log("Agent Name Is " + name);
          var config = agent.getConfiguration();
-         logInfoMsg("Agent configuration is " + agent.username + " " + agent.name);
+         console.log("Agent configuration is " + agent.username + " " + agent.name);
     }
 
     function printLatestAttributes(){
@@ -78,14 +76,8 @@ window.myCPP = window.myCPP || {};
         }
 
     function updateUi(){
-        var container =document.getElementById('attributesTable').getElementsByTagName('tbody')[0];
-
-         var content = container.innerHTML;
-        container.innerHTML= updateContactAttribute(getAttributes()); 
-    
-    console.log("Refreshed");           
-
-        gridDiv
+    var attr  = updateContactAttribute(contact.getAttributes());
+        console.log("Updating Attributes: " + attr);      
     }
         
     function clearContactAttribute(){
