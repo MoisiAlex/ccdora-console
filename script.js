@@ -40,7 +40,7 @@ window.myCPP = window.myCPP || {};
          
         updateContactAttribute(contact.getAttributes());   
 
-        contact.onConnected();
+        contact.onConnected(updateUi);
         contact.onEnded(clearContactAttribute);
     }
 
