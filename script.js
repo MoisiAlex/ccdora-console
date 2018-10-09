@@ -43,13 +43,17 @@ window.myCPP = window.myCPP || {};
         updateContactAttribute(contact.getAttributes());   
         contact.onConnected(printLatestAttributes);
         //contact.onConnected(call a function that updates the window and sends parameters somewhere-loggs them for now)
-        contact.onAccepted(updateContactAttribute(contact.getAttributes()));
+        contact.onAccepted(printLatestAttributes);
         logInfoMsg("ON-ACCEPTED-Contact attributes are " + JSON.stringify(contact.getAttributes()));
         contact.onEnded(clearContactAttribute);
     }
 
     function subscribeToAgentEvents(){
          logInfoMsg("Subscribing to agent events...");
+         var name = agent.getName();
+         logInfoMsg("Agent Name Is " + name);
+         var config = agent.getConfiguration();
+         logInfoMsg("Agent configuration is " + agent.username + " " + agent.name);
     }
 
     function printLatestAttributes(){
