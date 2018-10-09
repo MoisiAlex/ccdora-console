@@ -36,6 +36,7 @@ window.myCPP = window.myCPP || {};
         logInfoMsg("Contact attributes are " + JSON.stringify(contact.getAttributes()));
          
         updateContactAttribute(contact.getAttributes());   
+        contact.onConnected(updateContactAttribute(contact.getAttributes()));
         contact.onEnded(clearContactAttribute);
     }
 
