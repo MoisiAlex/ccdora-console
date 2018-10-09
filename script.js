@@ -78,9 +78,10 @@ window.myCPP = window.myCPP || {};
         }
 
     function updateUi(){
-        var container = document.getElementById('attributesTable');
+        var container =document.getElementById('attributesTable').getElementsByTagName('tbody')[0];
+
          var content = container.innerHTML;
-        container.innerHTML= content; 
+        container.innerHTML= updateContactAttribute(getAttributes()); 
     
     console.log("Refreshed");           
 
