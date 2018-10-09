@@ -37,6 +37,7 @@ window.myCPP = window.myCPP || {};
          
         updateContactAttribute(contact.getAttributes());   
         contact.onConnected(updateContactAttribute(contact.getAttributes()));
+        contact.onAccepted(updateContactAttribute(contact.getAttributes()));
         contact.onEnded(clearContactAttribute);
     }
 
