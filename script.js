@@ -67,7 +67,10 @@ window.myCPP = window.myCPP || {};
         }
 
     function updateUi(){
-        console.log('DODO-Agent has been connected'); 
+       logInfoMsg("DODO-Agent has been connected");
+        logInfoMsg("LATEST attributes are " + JSON.stringify(contact.getAttributes()));
+        console.log('2DODO-Agent has been connected'); 
+
     }
         
     function clearContactAttribute(){
