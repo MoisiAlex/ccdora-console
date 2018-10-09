@@ -24,6 +24,9 @@ window.myCPP = window.myCPP || {};
 
     function subscribeToContactEvents(contact) {
         window.myCPP.contact = contact;
+        //logInfoMsg("Current agent name is:" + agent.getName());
+        //logInfoMsg("Current agent configuration:");
+        //logInfoMsg(agent.getConfiguration());
         logInfoMsg("New contact offered. Subscribing to events for contact");
         if (contact.getActiveInitialConnection()
             && contact.getActiveInitialConnection().getEndpoint()) {
@@ -34,10 +37,13 @@ window.myCPP = window.myCPP || {};
         logInfoMsg("Contact is from queue " + contact.getQueue().name);    
         logInfoMsg("ContactID is " + contact.getContactId());   
         logInfoMsg("Contact attributes are " + JSON.stringify(contact.getAttributes()));
+
          
         updateContactAttribute(contact.getAttributes());   
         contact.onConnected(updateContactAttribute(contact.getAttributes()));
+        logInfoMsg("ON-CONNECTED-Contact attributes are " + JSON.stringify(contact.getAttributes()));
         contact.onAccepted(updateContactAttribute(contact.getAttributes()));
+        logInfoMsg("ON-ACCEPTED-Contact attributes are " + JSON.stringify(contact.getAttributes()));
         contact.onEnded(clearContactAttribute);
     }
 
