@@ -40,9 +40,8 @@ window.myCPP = window.myCPP || {};
          
         updateContactAttribute(contact.getAttributes());   
         //contact.onConnected(call a function that updates the window and sends parameters somewhere-loggs them for now)
-        contact.onAccepted(printLatestAttributes);
-        contact.onConnected(updateUi);
-        logInfoMsg("ON-ACCEPTED-Contact attributes are " + JSON.stringify(contact.getAttributes()));
+        //contact.onAccepted(printLatestAttributes);
+        //contact.onConnected(updateUi);
         contact.onEnded(clearContactAttribute);
     }
 
