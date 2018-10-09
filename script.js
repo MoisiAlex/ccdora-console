@@ -21,6 +21,7 @@ window.myCPP = window.myCPP || {};
     });
 
     connect.contact(subscribeToContactEvents);   
+    connect.agent(subscribeToAgentEvents);
 
     function subscribeToContactEvents(contact) {
         window.myCPP.contact = contact;
@@ -40,11 +41,23 @@ window.myCPP = window.myCPP || {};
 
          
         updateContactAttribute(contact.getAttributes());   
-        contact.onConnected(updateContactAttribute(contact.getAttributes()));
-        logInfoMsg("ON-CONNECTED-Contact attributes are " + JSON.stringify(contact.getAttributes()));
+        contact.onConnected(printLatestAttributes);
+        //contact.onConnected(call a function that updates the window and sends parameters somewhere-loggs them for now)
         contact.onAccepted(updateContactAttribute(contact.getAttributes()));
         logInfoMsg("ON-ACCEPTED-Contact attributes are " + JSON.stringify(contact.getAttributes()));
         contact.onEnded(clearContactAttribute);
+    }
+
+    function subscribeToAgentEvents(){
+         logInfoMsg("Subscribing to agent events...");
+    }
+
+    function printLatestAttributes(){
+        clearContactAttribute();
+        logInfoMsg("Clearing old attributes...");
+        updateContactAttribute(contact.getAttributes());
+        logInfoMsg("ON-CONNECTED-New Contact attributes are " + JSON.stringify(contact.getAttributes()));
+
     }
 
     function updateContactAttribute(msg){
